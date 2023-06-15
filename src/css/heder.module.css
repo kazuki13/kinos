@@ -1,0 +1,118 @@
+@charset "UTF-8";
+/* mainのサイズの調節 */
+main {
+  width: auto;
+  height:auto;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* ヘッダーのサイズ・色の設定 */
+.header{
+  padding: 16px 24px;
+  background-color: #c8f0f8;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.header2{
+  padding: 16px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+/* 名前 */
+.header_logo{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* 項目 */
+.header_list{
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  gap: 32px;
+  font-size: 16px;
+  font-weight: bold;
+}
+  ol,
+  ul {
+    list-style: none;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+/* フッター */
+footer {
+    background: #333333;
+    text-align: center;
+    font-size: 10px;
+    color:#ffffff;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+/* 装飾 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
+  font-feature-settings: "pkna";
+}
+
+[role="tablist"] {
+  display: flex;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0 1px;
+}
+
+button {
+  appearance: none;
+
+  padding: 10px 20px;
+  margin: 0;
+  border: none;
+  background: lightgray;
+  cursor: pointer;
+}
+
+[role="tabpanel"] {
+  border: 1px solid lightgray;
+  padding: 2rem;
+  max-width: 480px;
+  line-height: 175%;
+}
+
+/* UI制御のための指定 */
+[aria-hidden="true"] {
+  display: block;
+}
+
+[aria-hidden="false"] {
+  display: block;
+}
+
+[aria-selected="true"] {
+  background-color: royalblue;
+  color: rgb(0, 0, 0);
+}

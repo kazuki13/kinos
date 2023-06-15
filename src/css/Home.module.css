@@ -1,0 +1,71 @@
+
+
+.box1 { /*【div】囲み枠部分*/
+  top:50px;
+  position: relative; /*必須*/
+  height: 80px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px; /*内側の余白*/
+  border: 5px solid #aaa; /*枠線）*/
+  background: #eee; /*背景色*/
+  color: #555; /*テキスト色*/
+}
+.box_main{
+  position:absolute;
+  top:0px;
+  left:0px;
+  width: 100%;
+}
+.box1 .box_title { /*【span】タイトル部分*/
+  position: absolute; /*必須*/
+  top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
+  left: 12px;  /*囲み枠の左を基準として内側（右）に12px移動*/
+  line-height: 40px; /*行の高さ*/
+  padding: 0 16px; /*左右の余白*/
+  background: #aaa; /*背景色*/
+  border-radius: 5px 5px 0 0; /*角丸（左上5px 右上5px 右下0 左下0）*/
+  color: #fff; /*テキスト色*/
+  font-weight: bold; /*フォント太字*/
+  font-size: 120%; /*フォントサイズ変更*/
+  text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
+}
+.box1 .box_title2 { /*【span】タイトル部分*/
+  position: absolute; /*必須*/
+  top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
+  left: 90px;  /*囲み枠の左を基準として内側（右）に12px移動*/
+  line-height: 40px; /*行の高さ*/
+  padding: 0 16px; /*左右の余白*/
+  background: #aaa; /*背景色*/
+  border-radius: 5px 5px 0 0; /*角丸（左上5px 右上5px 右下0 左下0）*/
+  color: #fff; /*テキスト色*/
+  font-weight: bold; /*フォント太字*/
+  font-size: 120%; /*フォントサイズ変更*/
+  text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
+}
+.box1 .box_title { /*【span】タイトル部分*/
+  position: absolute; /*必須*/
+  top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
+  left: 12px;  /*囲み枠の左を基準として内側（右）に12px移動*/
+  line-height: 40px; /*行の高さ*/
+  padding: 0 16px; /*左右の余白*/
+  background: #aaa; /*背景色*/
+  border-radius: 5px 5px 0 0; /*角丸（左上5px 右上5px 右下0 左下0）*/
+  color: #fff; /*テキスト色*/
+  font-weight: bold; /*フォント太字*/
+  font-size: 120%; /*フォントサイズ変更*/
+  text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
+}
+
+
+.box1 .box_name { /*【p】本文部分*/
+  position:absolute;
+  top:0px;
+  left:0px;
+  width: 100%;
+}
+.box1 .box_name  { /*【p】本文部分*/
+  position:relative;
+  width: 80%
+}
+
