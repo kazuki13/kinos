@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -7,7 +7,20 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { BrowserRouter, Route, Link,NavLink } from "react-router-dom";
 import styles from "../css/tab.module.css"
+import { db } from './db';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
+
+type User = {
+  name: string;
+  email: string;
+  age: number;
+  admin: boolean;
+};
+
+
+ 
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -55,6 +68,42 @@ export default function SimpleTabs() {
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
+   const [users, setUsers] = useState<User[]>([]);
+  const { register,
+          handleSubmit,
+          watch,
+          formState: { errors }
+        } = useForm<User>();
+
+  const onSubmit: SubmitHandler<User> = (data) => {
+    console.log('onSubmit', data);
+    const usersCollectionRef = collection(db, 'users');
+    const documentRef = addDoc(usersCollectionRef, {
+      name: data.name,
+      email: data.email,
+      age: data.age,
+      admin: false,
+    });
+    console.log(documentRef);
+  };
+  
+  useEffect(() => {
+    let userList: User[] = [];
+    const usersCollectionRef = collection(db, 'users');
+    const unsub = onSnapshot(usersCollectionRef, (querySnapshot) => {
+      querySnapshot.docs.map((doc) => {
+        const user: User= {
+          name: doc.data().name,
+          email: doc.data().email,
+          age: doc.data().age,
+          admin: doc.data().admin,
+        };
+        userList.push(user);
+      });
+      setUsers(userList);
+    });
+    return unsub;
+  });
 
   return (
     <div className={styles.box1}>
@@ -66,62 +115,45 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
+        {users.map((user, index) => (
         <div className={styles.box_main}>
-                <NavLink to="/" className={styles.box_name_top}>
-                    <div>
-                                技術のタイトルの記入欄<br/>
-                                … の確認
-                    </div>
-                </NavLink>
-                <hr/>
-                <NavLink to="/React" className={styles.box_name}>
-                    <div>
-
-                                技術のタイトルの記入欄<br/>
-                                … の確認
-
-                    </div>
-                </NavLink>
-            </div>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <div className={styles.box_main}>
-                <NavLink to="/" className={styles.box_name_top}>
-                    <div>
-
-                                エラー文のタイトルの記入欄<br/>
-                                … の確認
-                    </div>
+                <NavLink to="/" className={styles.box_name_top} >
+                  <div key={index.toString()} className={styles.box_name_top}>{user.name}</div>
                 </NavLink>
                 <hr className={styles.box_hr}/>
-                <NavLink to="/React" className={styles.box_name}>
-                    <div>
-                            
-                                エラー文のタイトルの記入欄<br/>
-                                … の確認
-                            
-                    </div>
-                </NavLink>
             </div>
+           ))}
       </TabPanel>
+      
+      <TabPanel value={value} index={1}>
+        {users.map((user, index) => (
+        <div className={styles.box_main}>
+                <NavLink to="/" className={styles.box_name_top}>
+                  <div key={index.toString()} className={styles.box_name_top}>{user.name}</div>
+                </NavLink>
+                <hr className={styles.box_hr}/>
+            </div>
+           ))}
+      </TabPanel>
+    
       <TabPanel value={value} index={2}>
       <form className={styles.input_name}>
         <label className={styles.input_name}>
           Name<br/>
-          <input className={styles.input_mame}type="text" name="name" />
+          <input className={styles.input_mame} defaultValue="test" {...register('name')} />
         </label>
         {/* <input type="submit" value="Submit" /> */}
       </form>
       <label>
         title<br/>
-      <textarea className={styles.input_title}>
+      <textarea className={styles.input_title} defaultValue="test" {...register('age')}>
         Hello there, this is some text in a text area
       </textarea>
       </label><br/>
 
       <label>
         content<br/>
-      <textarea className={styles.input_content}>
+      <textarea className={styles.input_content} defaultValue="test" {...register('email')}>
         Hello there, this is some text in a text area
       </textarea>
       </label><br/>
@@ -136,10 +168,10 @@ export default function SimpleTabs() {
 
         </code>
       </label><br/>
-
-      <button>
-        登録
-      </button>
+      {errors.name && (
+          <span>Error!!!</span>
+        )}
+        <input value="登録" type="submit" />
       </TabPanel>
     </div>
   );
