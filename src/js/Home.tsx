@@ -1,5 +1,5 @@
 import { useState, FC } from "react";
-import { Message } from "./Home2";
+// import { Message } from "./Home2";
 import styles from "../css/Home.module.css"
 
 export const Form: FC = () => {
@@ -10,7 +10,7 @@ export const Form: FC = () => {
       <button className={styles.box_title} onClick={() => setVisible(!visible)} >
         {"Data"}
       </button>
-      <Message visible={visible} />
+      {/* <Message visible={visible} /> */}
       </div>
     </>
   );

@@ -6,7 +6,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { BrowserRouter, Route, Link,NavLink } from "react-router-dom";
-import headers from "../css/header.module.css"
 import styles from "../css/tab.module.css"
 import { db } from './db';
 import { addDoc, collection, onSnapshot, doc, deleteDoc, getDocs, query, where, updateDoc, arrayRemove} from 'firebase/firestore';
@@ -127,13 +126,8 @@ export default function SimpleTabs() {
   // const { id, text, timestamp } = props.todo;
 
   return (
-    <>
-    <header className={headers.header}>
-     <h1 className={headers.header_logo}><a href="/">kinos</a></h1>
-    </header>
     
     <div className={styles.box1}>
-
       <AppBar position="static" >
         <Tabs value={value} indicatorColor="primary" onChange={handleChange} aria-label="simple tabs example" className={styles.box_title}>
           <Tab label="技術" {...a11yProps(0)} />
@@ -147,9 +141,9 @@ export default function SimpleTabs() {
           <div key={user.name}>
                   {/* <div key={index.toString()} className={styles.box_name_top}>{user.name}</div> */}
                   <details>
-                  <summary className={styles.names}>
-                    <a className={styles.names}>{user.name}</a>
-                    <button className={styles.sakuzyo} key={user.name} onClick={() => deleteUser(user.name)}>削除</button>
+                  <summary>
+                    {user.name}
+                    <button key={user.name} onClick={() => deleteUser(user.name)}>削除</button>
                   </summary>
                   <div>
                     <p>詳細</p>
@@ -163,7 +157,7 @@ export default function SimpleTabs() {
                 {/* {users.map((user) => (
                   <div key={user.name}>
                     <span>{user.name}</span> */}
-                    {/* <span>{user.name}</span> */}
+                    
                     <form onSubmit={handleSubmit(onSubmit)}>
                     {/* <div>
                       <label>サブタイトル</label><br/>
@@ -217,6 +211,5 @@ export default function SimpleTabs() {
       </form>
       </TabPanel>
     </div>
-    </>
   );
 }

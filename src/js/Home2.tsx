@@ -1,35 +1,81 @@
-import { FC } from "react";
-import React from 'react';
-import { BrowserRouter, Route, Link,NavLink } from "react-router-dom";
-import styles from '../css/Home.module.css';
-import header from '../css/heder.module.css'
+import { useState,useEffect }  from 'react';
+import { db } from './db';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import './App.css';
 
-type Props = {
-  visible: boolean;
+type User = {
+  name: string;
+  email: string;
+  age: number;
+  admin: boolean;
 };
 
-export const Message: FC<Props> = ({ visible }) => {
-    return (
-        <>
-        <div style={{ visibility: visible ? "visible" : "hidden" }}> 
-        <div className={styles.box_main}>
-                <NavLink to="/" className={styles.box_name}>
-                    <div className={styles.box_name}>
-                                項目<br/>
-                                … の確認
-                    </div>
-                </NavLink>
-                <hr/>
-                <NavLink to="/React" className={styles.box_name}>
-                    <div className={styles.box_name}>
+function App() {
+  const [users, setUsers] = useState<User[]>([]);
+  const { register,
+          handleSubmit,
+          watch,
+          formState: { errors }
+        } = useForm<User>();
 
-                                項目<br/>
-                                … の確認
-
-                    </div>
-                </NavLink>
-            </div>
-        </div>
-        </>
-    );
+  const onSubmit: SubmitHandler<User> = (data) => {
+    console.log('onSubmit', data);
+    const usersCollectionRef = collection(db, 'users');
+    const documentRef = addDoc(usersCollectionRef, {
+      name: data.name,
+      email: data.email,
+      age: data.age,
+      admin: false,
+    });
+    console.log(documentRef);
   };
+  
+  useEffect(() => {
+    let userList: User[] = [];
+    const usersCollectionRef = collection(db, 'users');
+    const unsub = onSnapshot(usersCollectionRef, (querySnapshot) => {
+      querySnapshot.docs.map((doc) => {
+        const user: User= {
+          name: doc.data().name,
+          email: doc.data().email,
+          age: doc.data().age,
+          admin: doc.data().admin,
+        };
+        userList.push(user);
+      });
+      setUsers(userList);
+    });
+    return unsub;
+  });
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>名前</label>
+          <input defaultValue="test" {...register('name')} />
+        </div>
+        <div>
+          <label>年齢</label>
+          <input defaultValue="test" {...register('age')} />
+        </div>
+        <div>
+          <label>メールアドレス</label>
+          <input defaultValue="test" {...register('email')} />
+        </div>
+        {errors.name && (
+          <span>Error!!!</span>
+        )}
+        <input value="登録" type="submit" />
+      </form>
+      <div>
+        {users.map((user, index) => (
+          <div key={index.toString()}>{user.name}</div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default App;

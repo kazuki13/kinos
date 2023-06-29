@@ -1,162 +1,178 @@
 
 
 .box1 { /*【div】囲み枠部分*/
-    top:50px;
-    position: relative; /*必須*/
-    height: 1050px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 16px; /*内側の余白*/
-    border: 5px solid #aaaaaa; /*枠線）*/
-    background: #eee; /*背景色*/
-    color: #555; /*テキスト色*/
-  }
-  .box_main{
-    position:relative;
-    top:0px;
-    left:0px;
-    width: 100%;
-  }
-  .box1 .box_title { /*【span】タイトル部分*/
-    position: absolute; /*必須*/
-    top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
-    left: 12px;  /*囲み枠の左を基準として内側（右）に12px移動*/
-    line-height: 40px; /*行の高さ*/
-    padding: 0 16px; /*左右の余白*/
-    background: #aaa; /*背景色*/
-    border-radius: 5px 5px 0 0; /*角丸（左上5px 右上5px 右下0 左下0）*/
-    color: #fff; /*テキスト色*/
-    font-weight: bold; /*フォント太字*/
-    font-size: 120%; /*フォントサイズ変更*/
-    text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
-  }
-  .box1 .box_title2 { /*【span】タイトル部分*/
-    position: absolute; /*必須*/
-    top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
-    left: 90px;  /*囲み枠の左を基準として内側（右）に12px移動*/
-    line-height: 40px; /*行の高さ*/
-    padding: 0 16px; /*左右の余白*/
-    background: #aaa; /*背景色*/
-    border-radius: 5px 5px 0 0; /*角丸（左上5px 右上5px 右下0 左下0）*/
-    color: #fff; /*テキスト色*/
-    font-weight: bold; /*フォント太字*/
-    font-size: 120%; /*フォントサイズ変更*/
-    text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
-  }
-  .box1 .box_title { /*【span】タイトル部分*/
-    position: absolute; /*必須*/
-    top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
-    left: 12px;  /*囲み枠の左を基準として内側（右）に12px移動*/
-    line-height: 40px; /*行の高さ*/
-    padding: 0 16px; /*左右の余白*/
-    background: #aaa; /*背景色*/
-    border-radius: 5px 5px 0 0; /*角丸（左上5px 右上5px 右下0 左下0）*/
-    color: #000000; /*テキスト色*/
-    font-weight: bold; /*フォント太字*/
-    font-size: 120%; /*フォントサイズ変更*/
-    text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
-  }
-  
-  
+  top:50px;
+  position: relative; /*必須*/
+  height: 1050px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 16px; /*内側の余白*/
+  border: 5px solid #aaaaaa; /*枠線）*/
+  background: #eee; /*背景色*/
+  color: #555; /*テキスト色*/
+}
+.box_main{
+  position:relative;
+  top:0px;
+  left:0px;
+  width: 100%;
+}
+.box1 .box_title { /*【span】タイトル部分*/
+  position: absolute; /*必須*/
+  top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
+  left: 12px;  /*囲み枠の左を基準として内側（右）に12px移動*/
+  line-height: 40px; /*行の高さ*/
+  padding: 0 16px; /*左右の余白*/
+  background: #aaa; /*背景色*/
+  color: #fff; /*テキスト色*/
+  font-weight: bold; /*フォント太字*/
+  font-size: 120%; /*フォントサイズ変更*/
+  text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
+}
+.box1 .box_title2 { /*【span】タイトル部分*/
+  position: absolute; /*必須*/
+  top: -40px; /*囲み枠の上を基準として外側（上）に40px移動*/
+  left: 90px;  /*囲み枠の左を基準として内側（右）に12px移動*/
+  line-height: 40px; /*行の高さ*/
+  padding: 0 16px; /*左右の余白*/
+  background: #aaa; /*背景色*/
+  color: #fff; /*テキスト色*/
+  font-weight: bold; /*フォント太字*/
+  font-size: 120%; /*フォントサイズ変更*/
+  text-shadow: 2px 2px 5px #555; /*テキストに影を付ける*/
+}
+
+
 .box_name_top { /*【p】本文部分*/
-    position:relative;
-    text-decoration: none;
-    color: inherit;
-    top:10px;
-    left:0px;
-    height: 100px;
-    width: 100%;
-  }
-  .box_name { /*【p】本文部分*/
-    position:relative;
-    text-decoration: none;
-    color: inherit;
-    top: 0px;
-    left:0px;
-    height: 20px;
-    width: 100%;
-  }
-  .box1 .box_name  { /*【p】本文部分*/
-    position:relative;
-    width: 80%
-  }
+  position:relative;
+  text-decoration: none;
+  color: inherit;
+  top:10px;
+  left:0px;
+  height: 100px;
+  width: 100%;
+}
+.box_name { /*【p】本文部分*/
+  position:relative;
+  text-decoration: none;
+  color: inherit;
+  top: 0px;
+  left:0px;
+  height: 20px;
+  width: 100%;
+}
+.box1 .box_name  { /*【p】本文部分*/
+  position:relative;
+  width: 80%
+}
 
 .box1 .box_hr{
-    top:100px;
-  }
-  
+  top:100px;
+}
+
 .input_title{
-    display: inline-block;
-    height: 57px;
-    width: 869px;
+  display: inline-block;
+  white-space: pre-wrap;
+  height: 57px;
+  width: 869px;
 }
 .input_content{
-    display: inline-block;
-    width: 1000px;
-    height: 400px;
+  display: inline-block;
+  width: 869px;
+  height: 400px;
 }
 
 /* App.css */
 
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+max-width: 600px;
+margin: 0 auto;
+padding: 20px;
 }
 
 h1 {
-  text-align: center;
+text-align: center;
 }
 
 .form {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
 .form_group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+display: flex;
+align-items: center;
+margin-bottom: 10px;
 }
 
 .form_group label {
-  flex-basis: 100px;
-  margin-right: 10px;
+flex-basis: 100px;
+margin-right: 10px;
 }
 
 input[type='text'],
 input[type='number'] {
-  flex-grow: 1;
-  padding: 5px;
+flex-grow: 1;
+padding: 5px;
 }
 
 button {
-  display: block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  background-color: #4285f4;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+display: block;
+margin: 0 auto;
+padding: 10px 20px;
+background-color: #4285f4;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 
 ul.user_list {
-  list-style-type: none;
-  padding: 0;
+list-style-type: none;
+padding: 0;
 }
 
 .user_item {
-  position: relative;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+position: relative;
+margin-bottom: 10px;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 4px;
 }
 
 .user_name {
-  font-weight: bold;
+font-weight: bold;
 }
 
 .user_age {
-  color: #888;
+color: #888;
+}
+
+details {
+border: 1px solid #aaa;
+border-radius: 4px;
+padding: 0.5em 0.5em 0;
+}
+
+summary {
+font-weight: bold;
+margin: -0.5em -0.5em 0;
+padding: 0.5em;
+}
+
+details[open] {
+padding: 0.5em;
+}
+
+details[open] summary {
+border-bottom: 1px solid #aaa;
+margin-bottom: 0.5em;
+}
+
+
+
+.names{
+  display:flex
+}
+.sakuzyo{
+  display: flex;
 }

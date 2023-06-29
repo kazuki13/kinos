@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from './js/Home'; //作成したpage1.jsを読
-import React2 from './js/React'
+import Home from './js/Home_main'; //作成したpage1.jsを読
+import React3 from './js/React'
 import React from 'react'
 
 
@@ -10,7 +10,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Routes>
           <Route path={`/`} element={<Home />} />
-          <Route path={`/React`} element={<React2 />} />
+          <Route path={`/React`} element={<React3 />} />
           {/* <Route path={`φωτίζω`} element={<Jetbot />} />
           <Route path={`E-gate`} element={<Egate />} />
           <Route path={`Face`} element={<Face />} />
